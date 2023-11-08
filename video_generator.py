@@ -97,21 +97,21 @@ def generate_video(prompt, avatar_url, gender):
 def main():
     st.set_page_config(page_title="Avatar Video Generator", page_icon=":movie_camera:")
 
-    st.title("Generate Avatar Video")
+    st.title("Generate Video")
 
     # Text prompt input
-    prompt = st.text_area("Enter Text Prompt", "Once upon a time...")
+    prompt = st.text_area("Enter Text Prompt", "Biology is the scientific study of life. It is a natural science with a broad scope but has several unifying themes that tie it together as a single, coherent field. For instance, all organisms are made up of cells that process hereditary information encoded in genes, which can be transmitted to future generations.")
 
     # Dropdown box for avatar selection
-    avatar_options = ["Male", "Female"]
-    avatar_selection = st.selectbox("Choose Avatar", avatar_options)
-    avatar_url = avatarlist[avatar_selection]
+    # avatar_options = ["Male", "Female"]
+    # avatar_selection = st.selectbox("Choose Avatar", avatar_options)
+    avatar_url = avatarlist["Female"]
 
     # Generate video button
     if st.button("Generate Video"):
         st.text("Generating video...")
         try:
-            video_url = generate_video(prompt, avatar_url, avatar_selection)  # Call your video generation function here
+            video_url = generate_video(prompt, avatar_url, "Female")  # Call your video generation function here
             print("----", video_url)
             if video_url != "error":
                 st.text("Video generated!")
